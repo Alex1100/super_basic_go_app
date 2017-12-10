@@ -1,0 +1,20 @@
+{
+  "name": "super_basic_go_app",
+  "version": "1.0.0",
+  "description": "Building a Basic CRUD App with golang's standard library packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex1100 <alex100.software@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
