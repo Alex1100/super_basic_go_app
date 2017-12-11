@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+	"github.com/gorilla/schema"
 	"net/http"
 	"super_basic_go_app/views"
 )
@@ -30,6 +31,11 @@ func (u *Users) New(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+type SignupForm struct {
+	Email    string `schema:"email"`
+	Password string `schmea:"password"`
+}
+
 //Create is used to process the signup
 //form when a user submits it.
 //This is used to create a new user
@@ -37,5 +43,16 @@ func (u *Users) New(w http.ResponseWriter, r *http.Request) {
 //
 //POST /signup
 func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "This is a temp response.")
+	if err := r.ParseForm(); err != nil {
+		panic(err)
+	}
+
+	dec := schema.NewDecoder()
+	var form SignupForm
+
+	if err := dec.Decode(&form, r.PostForm); err != nil {
+		panic(err)
+	}
+
+	fmt.Fprintln(w, form)
 }
