@@ -32,6 +32,7 @@ func main() {
 	mux.HandleFunc("/", home).Methods("GET")
 	mux.HandleFunc("/contact", contact).Methods("GET")
 	mux.HandleFunc("/signup", usersC.New).Methods("GET")
+	mux.HandleFunc("/signup", usersC.Create).Methods("POST")
 
 	fmt.Println(http.ListenAndServe(":3000", mux))
 }
